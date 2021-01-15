@@ -3,7 +3,7 @@
 
 vsftpd_packages:
   - vsftpd
-  - libsemanage-python
+  - "{{ 'libsemanage-python' if ansible_distribution_major_version < 8 else 'policycoreutils-python-utils' }}"
 
 vsftpd_service: vsftpd
 
